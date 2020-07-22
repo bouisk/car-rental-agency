@@ -1,0 +1,26 @@
+<h2 mat-dialog-title>{{name}}</h2>
+<mat-dialog-content [formGroup]="form">
+    <mat-form-field>
+        <mat-label>Car Brands</mat-label>
+        <mat-select formControlName="carBrandKey">
+          <mat-option *ngFor="let carBrand of carBrands" [value]="carBrand.value">
+            {{carBrand.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field> 
+
+    <mat-form-field>
+        <input matInput
+               placeholder="Update car model"
+               formControlName="name">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput
+               placeholder="Update Year"
+               formControlName="year">
+    </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button class="btn btn-warning"(click)="close()">Close</button>
+    <button class="btn btn-success"(click)="save()">Save</button>
+</mat-dialog-actions>
